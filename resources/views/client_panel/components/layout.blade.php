@@ -15,10 +15,11 @@
     <div class="flex justify-between px-20 py-2">
         <div class="text-3xl font-bold ">RAVISH</div>
         <div class="flex items-center gap-5">
-            <a class="bg-red-500 px-5 text-white py-2 -skew-x-[20deg]" href="">रवीश कुमार</a>
-            <a class="bg-zinc-500 px-5 text-white py-2 -skew-x-[20deg]" href="">चुनावी रैलियां</a>
-            <a class="bg-blue-500 px-5 text-white py-2 -skew-x-[20deg]" href="">संपर्क अधिकारी</a>
-            <a class="bg-rose-500 px-5 text-white py-2 -skew-x-[20deg]" href="">आगामी कार्यक्रम</a>
+            <a class="bg-red-500 px-5 text-white py-2 -skew-x-[20deg]" href="{{ route('home') }}">रवीश कुमार</a>
+            <a class="bg-zinc-500 px-5 text-white py-2 -skew-x-[20deg]" href="{{ route('janta') }}">जनता दरबार</a>
+            <a class="bg-zinc-500 px-5 text-white py-2 -skew-x-[20deg]" href="{{ route('rally') }}">चुनावी रैलियां</a>
+            <a class="bg-blue-500 px-5 text-white py-2 -skew-x-[20deg]" href="{{ route('staff') }}">संपर्क अधिकारी</a>
+            <a class="bg-rose-500 px-5 text-white py-2 -skew-x-[20deg]" href="{{ route('upcoming_event') }}">आगामी कार्यक्रम</a>
             <a class="bg-black px-5 text-white py-2 -skew-x-[20deg]" href="">संपर्क करें</a>
         </div>
     </div>

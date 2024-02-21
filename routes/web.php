@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ClientController::class , 'homepage'])->name('home');
+Route::get('/janta-darbar', [ClientController::class , 'janta'])->name('janta');
+Route::get('/election-rally-view', [ClientController::class , 'rally'])->name('rally');
+Route::get('/staff-profile', [ClientController::class , 'staff'])->name('staff');
+Route::get('/upcoming-event', [ClientController::class , 'upcoming_event'])->name('upcoming_event');
