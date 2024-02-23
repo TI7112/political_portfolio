@@ -19,6 +19,6 @@ class ClientController extends Controller
         return view('client_panel.pages.staff');
     }
     public function upcoming_event(Request $request){
-        return view('client_panel.pages.upcomming_eventp');
+        return view('client_panel.pages.upcomming_event');
     }
 }

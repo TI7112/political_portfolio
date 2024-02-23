@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,8 @@ Route::get('/janta-darbar', [ClientController::class , 'janta'])->name('janta');
 Route::get('/election-rally-view', [ClientController::class , 'rally'])->name('rally');
 Route::get('/staff-profile', [ClientController::class , 'staff'])->name('staff');
 Route::get('/upcoming-event', [ClientController::class , 'upcoming_event'])->name('upcoming_event');
+
+
+Route::get('/admin', [AdminController::class , 'login'])->name('admin_login');
+Route::post('/admin', [AdminController::class , 'login_auth'])->name('admin_login_auth');
+Route::get('/admin/janta', [AdminController::class , 'janta'])->name('admin_janta');
