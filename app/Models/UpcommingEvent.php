@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class UpcommingEvent extends Model
 {
     use HasFactory;
-    protected $table = "tbl_users";
+    protected $table = "tbl_upcomming_event";
     protected $primaryKey = "id";
 }

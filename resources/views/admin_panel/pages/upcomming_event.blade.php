@@ -1,7 +1,7 @@
 @extends('admin_panel.components.layout')
 
-@section('title', 'Manage Janta-Darbar')
-@section('heading', 'Manage Janta-Darbar')
+@section('title', 'Manage Upcomming Event')
+@section('heading', 'Manage Upcomming Event')
 
 @section('content')
 
@@ -12,20 +12,21 @@
             </a>
             <p class="text-base">/</p>
             <a href="">
-                <p class="text-xs hover:underline">Manage Janta-Darbar</p>
+                <p class="text-xs hover:underline">Manage Upcomming Event</p>
             </a>
         </div>
         <div x-data="{ open: false }">
             <button @click="open = !open"
-                class="bg-slate-700 hover:bg-slate-800 duration-500 text-white px-5 py-1 rounded">Add Janta-Darbar</button>
+                class="bg-slate-700 hover:bg-slate-800 duration-500 text-white px-5 py-1 rounded">Add Upcomming
+                Event</button>
 
             <div style="background-color: rgba(0 ,0,0,0.7)" x-show="open"
                 class="w-full px-2 h-screen flex justify-center items-center z-50 fixed top-0 left-0">
-                <form action="{{ route('admin_add_janta_darbar')}}" method="POST" enctype="multipart/form-data"
+                <form action="{{ route('admin_add_upcomming_event') }}" method="POST" enctype="multipart/form-data"
                     class="lg:w-[35vw] w-full bg-white rounded-xl border-slate-800 border-2">
                     @csrf
                     <div class="flex justify-between px-4 bg-slate-800 text-white py-2">
-                        <p class="text-xl font-semibold">Add Janta-Darbar</p>
+                        <p class="text-xl font-semibold">Add Upcomming Event</p>
                         <button type="button" @click="open = !open" class="text-xl font-semibold">x</button>
                     </div>
                     <div class="pb-2 pt-3 px-4 flex flex-col gap-3">
@@ -36,30 +37,16 @@
                                 required>
                         </div>
                         <div class="">
-                            <p class="text-sm font-semibold">Agenda<span class="text-red-500">*</span></p>
-                            <input type="text" name="agenda"
+                            <p class="text-sm font-semibold">Event Date<span class="text-red-500">*</span></p>
+                            <input type="date" name="event_date"
                                 class="border-2 border-slate-400 duration-500 focus:border-slate-600 outline-none px-2 py-0.5 rounded w-full"
                                 required>
-                        </div>
-                        <div class="flex gap-5">
-                        <div class="w-1/2">
-                            <p class="text-sm font-semibold">Start Date<span class="text-red-500">*</span></p>
-                            <input type="date" name="start_date"
-                                class="border-2 border-slate-400 duration-500 focus:border-slate-600 outline-none px-2 py-0.5 rounded w-full"
-                                required>
-                        </div>
-                        <div class="w-1/2">
-                            <p class="text-sm font-semibold">End Date<span class="text-red-500">*</span></p>
-                            <input type="date" name="end_date"
-                                class="border-2 border-slate-400 duration-500 focus:border-slate-600 outline-none px-2 py-0.5 rounded w-full"
-                                required>
-                        </div>
                         </div>
                         <div class="">
-                            <p class="text-sm font-semibold">Location<span class="text-red-500">*</span></p>
-                            <input type="text" name="location"
+                            <p class="text-sm font-semibold">Description<span class="text-red-500">*</span></p>
+                            <textarea type="text" name="description"
                                 class="border-2 border-slate-400 duration-500 focus:border-slate-600 outline-none px-2 py-0.5 rounded w-full"
-                                required>
+                                required></textarea>
                         </div>
                         <div class="">
                             <p class="text-sm font-semibold">Thumbnail<span class="text-red-500">*</span></p>
@@ -73,7 +60,7 @@
                                 type="button">Cancel</button>
                             <button
                                 class="bg-slate-700 hover:bg-slate-800 duration-500 text-white font-semibold px-5 py-1 rounded"
-                                type="submit">Add Janta Darbar</button>
+                                type="submit">Add Upcomming Event</button>
                         </div>
 
                     </div>
@@ -84,19 +71,19 @@
 
     <div class="">
         <style>
-           .dataTables_wrapper .dataTables_filter input {
-                border:1px solid #aaaw;
-                border-radius: 12px;
+            .dataTables_wrapper .dataTables_filter input {
+                border: 1px solid #aaa;
+                border-radius: 10px;
                 width: 15vw;
-                margin: 0 0 12px 12px;
+                margin: 0 0 10px 10px;
                 outline: none;
                 padding: 5px;
             }
         </style>
 
-        <div class="w-full border-2 p-5 w-[12%] text-leftrounded-lg">
+        <div class="w-full border-2 p-5 rounded-lg">
             @if (Session::has('success'))
-                <p class="text-green-120 bg-green-500 px-5 mb-2 font-semibold py-1">{{ Session::get('success') }}</p>
+                <p class="text-green-100 bg-green-500 px-5 mb-2 font-semibold py-1">{{ Session::get('success') }}</p>
             @endif
             <table id="example" class="display responsive nowrap w-full border-2">
                 <thead>
@@ -105,7 +92,7 @@
                         <th class="py-2 w-[10%]">Img</th>
                         <th class="py-2 w-[40%] text-left">Title</th>
                         <th class="py-2 w-[15%] text-left">Date</th>
-                        <th class="py-2 w-[15%] text-left">Location</th>
+                        <th class="py-2 w-[15%] text-left">Description</th>
                         <th class="py-2 w-[12%] text-left">Created at</th>
                         <th class="py-2 pr-3 w-[5%]">Action</th>
                     </tr>
@@ -114,7 +101,7 @@
                     $i = 0;
                 @endphp
                 <tbody>
-                    @foreach ($jantadarbar as $value)
+                    @foreach ($upcomming_event as $value)
                         <tr class="border-b-2 justify-center">
                             <td class="py-2 w-[5%] pl-5">@php echo $i = $i +1 @endphp</td>
                             <td class="py-2 flex ">
@@ -123,8 +110,8 @@
                                     alt="">
                             </td>
                             <td class="py-2 w-[40%] text-left" title="{{ $value->title }}">{{ substr($value->title , 0 , 200) . "..." }}</td>
-                            <td class="py-2 w-[15%] text-left">{{ substr($value->start_date , 8 , 2) . " - " . substr($value->end_date , 8 , 2) . "/" . substr($value->end_date , 5 , 2) . "/" . substr($value->end_date , 0 , 4) }}</td>
-                            <td class="py-2 w-[15%] text-left">{{ $value->location }}</td>
+                            <td class="py-2 w-[15%] text-left">{{ $value->event_date}}</td>
+                            <td class="py-2 w-[15%] text-left">{{ substr($value->description , 0 , 100) . "..." }}</td>
                             <td class="py-2 w-[12%] text-left pl-2">{{ $value->created_at }}</td>
                             <td class="py-2 w-[5%]">
                                 <button type="button" name="" onclick="update(this)" class="pl-4">
@@ -154,15 +141,12 @@
             </table>
         </div>
 
-        
-
         <script>
             new DataTable('#example');
 
             function handleClose() {
                 updatediv.classList.add('hidden');
             }
-
         </script>
 
     @endsection

@@ -126,7 +126,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="" class="group w-full">
+                    <a href="{{ route('admin_janta')}}" class="group w-full">
                         <div class="py-5 px-10 flex justify-between items-center">
                             <div class="flex text-slate-500 items-center gap-8">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6"
@@ -149,7 +149,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="" class="group w-full">
+                    <a href="{{ route('admin_rally')}}" class="group w-full">
                         <div class="py-5 px-10 flex justify-between items-center">
                             <div class="flex text-slate-500 items-center gap-8">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6"
@@ -170,7 +170,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="" class="group w-full">
+                    <a href="{{ route('admin_staff') }}" class="group w-full">
                         <div class="py-5 px-10 flex justify-between items-center">
                             <div class="flex text-slate-500 items-center gap-8">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6"
@@ -191,7 +191,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="" class="group w-full">
+                    <a href="{{ route('admin_upcoming_event') }}" class="group w-full">
                         <div class="py-5 px-10 flex justify-between items-center">
                             <div class="flex text-slate-500 items-center gap-8">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6 h-6"

@@ -26,7 +26,7 @@
                         @endif
                         <div class="w-full">
                             <p class="text-sm font-semibold py-1 text-slate-600">Enter Phone Number</p>
-                            <input class="border-2 px-2 py-1 w-full" type="text" name="phone"
+                            <input required class="border-2 px-2 py-1 w-full" type="text" name="phone"
                                 value="{{ old('phone') }}" placeholder="Enter Phone number">
                             @error('phone')
                                 <span class="bg-red-200 w-full px-2 text-xs py-1">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="w-full">
                             <p class="text-sm font-semibold py-1 text-slate-600">Enter Password</p>
-                            <input class="border-2 px-2 py-1 w-full" type="password" name="password"
+                            <input required class="border-2 px-2 py-1 w-full" type="password" name="password"
                                 placeholder="Enter password">
                             @error('password')
                                 <span class="bg-red-200 w-full px-2 text-xs py-1">
